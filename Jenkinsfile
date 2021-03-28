@@ -20,7 +20,7 @@ pipeline {
 
         stage('slack') {
           steps {
-            slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T01M5ETUS22/B01SZLNHYG1/8V0tkFvgfVRFuKfSvQKaqCNQ', attachments: 'Hello', blocks: 'hiiii', username: 'Lam')
+            slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T01M5ETUS22/B01SZLNHYG1/8V0tkFvgfVRFuKfSvQKaqCNQ', attachments: 'Hello', blocks: 'hiiii', username: 'Lam', message: 'hello team', channel: '#general', sendAsText: true, teamDomain: 'tpoglgroupe.slack.com')
           }
         }
 
