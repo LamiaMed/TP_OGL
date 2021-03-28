@@ -30,7 +30,7 @@ pipeline {
 
         stage('Test Reporting') {
           steps {
-            cucumber(fileIncludePattern: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/example-report.json', jsonReportDirectory: 'reports/cucumber', buildStatus: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/cucumber')
+            cucumber(fileIncludePattern: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/', jsonReportDirectory: 'reports/', buildStatus: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/', reportTitle: 'Reportjenkins')
           }
         }
 
