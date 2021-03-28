@@ -1,0 +1,102 @@
+
+/*dependencies {
+    testImplementation 'io.cucumber:cucumber-java:6.0.0'
+    testImplementation 'io.cucumber:cucumber-junit:6.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+}
+*/
+plugins {
+    id 'java'
+
+   // id "com.github.spacialcircumstances.gradle-cucumber-reporting" version "0.1.22"
+    id 'jacoco'
+    id "org.sonarqube" version "3.1.1"
+    //id "net.madeng.slack" version "0.0.23"
+
+}
+
+group 'com.example'
+version '1.0'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'https://mymavenrepo.com/repo/KbKvfus2ASibaaRuxMSD/'
+        credentials {
+            username 'myMavenRepo'
+            password '123'
+        }
+    }
+
+}
+configurations {
+    jaxDoclet
+}
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:6.0.0'
+    testImplementation 'io.cucumber:cucumber-junit:6.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+
+}
+/*cucumberReports {
+    outputDir = file('reports/cucumber')
+    buildId='0'
+    reports=files('reports/example-report.json')
+
+}*/
+//test.finalizedBy "sonarqube"
+
+/*task Javadoc(type: Javadoc) {
+    source = sourceSets.main.allJava
+    destinationDir = reporting.file("rest-api-docs")
+    options.docletpath = configurations.jaxDoclet.files.asType(List)
+    options.doclet = "com.lunatech.doclets.jax.jaxrs.JAXRSDoclet"
+    options.addStringOption("jaxrscontext", "http://localhost:8080/myapp")
+}*/
+/*task generateMatrixAPI(type:Copy){
+    from 'C:\\Users\\Lamia\\Desktop\\2CS\\OUTILS\\TP_7\\build\\reports'
+    into 'MatrixRelease/Matrix_v_1.0'
+    from 'C:\\Users\\Lamia\\Desktop\\2CS\\OUTILS\\TP_7\\build\\docs'
+    into 'MatrixRelease/Matrix_v_1.0'
+    from 'C:\\Users\\Lamia\\Desktop\\2CS\\OUTILS\\TP_7\\build\\libs'
+    into 'MatrixRelease/Matrix_v_1.0'
+
+}*/
+//generateMatrixAPI.dependsOn build
+//generateMatrixAPI.dependsOn javadoc
+
+apply plugin: 'maven-publish'
+group = 'com.example'
+version = '0.1'
+
+dependencies {
+    implementation 'junit:junit:4.12'
+}
+publishing {
+    repositories {
+        maven {
+            url 'https://mymavenrepo.com/repo/2bR94A6sITfzPh4g7c7D/'
+            credentials {
+                username 'myMavenRepo'
+                password '123'
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+//publish.dependsOn generateMatrixAPI
+/*slack {
+    webhookUrl 'https://hooks.slack.com/services/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'
+    message {
+        text = "Project is built newly and deployed"
+    }
+}*/
+//publishToSlack.dependsOn publish
