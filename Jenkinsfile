@@ -10,5 +10,17 @@ pipeline {
       }
     }
 
+    stage('Mail Notification') {
+      steps {
+        mail(subject: 'Notification', body: 'Hey Aya you are notified', from: 'hl_medjahed@esi.dz', to: 'ga_bendjeddou@esi.dz')
+      }
+    }
+
+    stage('Code Analysis') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
