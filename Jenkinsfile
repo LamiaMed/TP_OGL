@@ -20,7 +20,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            waitForQualityGate true
+            waitForQualityGate(abortPipeline: true, credentialsId: 'withSonarQubeEnv')
           }
         }
 
