@@ -20,7 +20,6 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            powershell 'gradle sonarqube'
             withSonarQubeEnv 'sonar'
             waitForQualityGate true
           }
