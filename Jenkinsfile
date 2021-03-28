@@ -26,7 +26,7 @@ pipeline {
 
         stage('Test Reporting') {
           steps {
-            cucumber 'reports/example-report.json'
+            cucumber(fileIncludePattern: 'reports/example-report.json', jsonReportDirectory: 'reports/cucumber')
           }
         }
 
