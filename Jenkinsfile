@@ -17,23 +17,12 @@ pipeline {
     }
 
     stage('Code Analysis') {
-      parallel {
-        stage('Code Analysis') {
-          steps {
-            withSonarQubeEnv('sonar') {
-              powershell 'gradle sonarqube'
-            }
-
-            waitForQualityGate true
-          }
+      steps {
+        withSonarQubeEnv('sonar') {
+          powershell 'gradle sonarqube'
         }
 
-        stage('Test Reporting') {
-          steps {
-            cucumber(fileIncludePattern: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/', jsonReportDirectory: 'reports/', buildStatus: 'https://github.com/LamiaMed/TP_OGL/tree/master/reports/', reportTitle: 'Reportjenkins')
-          }
-        }
-
+        waitForQualityGate true
       }
     }
 
