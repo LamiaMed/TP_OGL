@@ -20,7 +20,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('SonarQube') {
+            withSonarQubeEnv('sonar') {
               powershell 'gradle sonarqube'
             }
 
