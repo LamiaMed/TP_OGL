@@ -17,12 +17,23 @@ pipeline {
     }
 
     stage('Code Analysis') {
-      steps {
-        withSonarQubeEnv('sonar') {
-          powershell 'gradle sonarqube'
+      parallel {
+        stage('Code Analysis') {
+          steps {
+            withSonarQubeEnv('sonar') {
+              powershell 'gradle sonarqube'
+            }
+
+            waitForQualityGate true
+          }
         }
 
-        waitForQualityGate true
+        stage('Test Reporting') {
+          steps {
+            cucumber '**/*.json'
+          }
+        }
+
       }
     }
 
