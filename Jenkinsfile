@@ -30,7 +30,7 @@ pipeline {
 
         stage('Test Reporting') {
           steps {
-            cucumber(fileIncludePattern: '**/*.json', jsonReportDirectory: 'reports/', reportTitle: 'jenkins')
+            cucumber(fileIncludePattern: '**/*.json', jsonReportDirectory: '/reports', reportTitle: 'jenkins')
           }
         }
 
