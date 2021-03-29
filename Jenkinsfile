@@ -23,7 +23,7 @@ pipeline {
         powershell 'gradle javadoc'
         archiveArtifacts 'build/libs/*.jar'
         archiveArtifacts 'build/docs/javadoc/*'
-        archiveArtifacts 'build/test-results/test/*.xml'
+        junit 'build/test-results/test/*.xml'
       }
     }
 
