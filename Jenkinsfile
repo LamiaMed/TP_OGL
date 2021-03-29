@@ -78,7 +78,7 @@ pipeline {
 
     stage('Slack Notification') {
       steps {
-        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T01M5ETUS22/B01SZLNHYG1/8V0tkFvgfVRFuKfSvQKaqCNQ', message: "${messageSlack}", username: 'lam', channel: '#general', attachments: 'Hello', blocks: 'hiiii', sendAsText: true, teamDomain: 'tpoglgroupe.slack.com')
+        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T01M5ETUS22/B01SZLNHYG1/8V0tkFvgfVRFuKfSvQKaqCNQ', message: 'test', username: 'lam', channel: '#general', attachments: 'Hello', blocks: 'hiiii', sendAsText: true, teamDomain: 'tpoglgroupe.slack.com')
       }
     }
 
