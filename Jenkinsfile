@@ -2,22 +2,6 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-       post {
-        failure {
-          script {
-            message="failure"
-          }
-
-        }
-
-        success {
-          script {
-            message="Success"
-          }
-
-        }
-
-      }
       steps {
         powershell 'gradle build'
         powershell 'gradle javadoc'
