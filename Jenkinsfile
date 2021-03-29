@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-       post {
+      post {
         failure {
           script {
             message="failure"
@@ -29,7 +29,7 @@ pipeline {
 
     stage('Mail Notification') {
       steps {
-        mail(subject: 'Build Notification', body:  "${message}" , from: 'hl_medjahed@esi.dz', to: 'ga_bendjeddou@esi.dz')
+        mail(subject: 'Build Notification', body: "${message}", from: 'hl_medjahed@esi.dz', to: 'ga_bendjeddou@esi.dz')
       }
     }
 
